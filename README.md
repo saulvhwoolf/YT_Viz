@@ -1,11 +1,12 @@
-﻿Final Project - Interactive Data Visualization  
-===
+# Final Project - Interactive Data Visualization  
+This project was completed for Worcester Polytechnic Insitute's data visualization course. 
 
-Website: <https://saulvhwoolf.github.io/DataVisFinal/>
+
+Website: <https://saulvhwoolf.github.io/YT_Viz/>
 
 Video Walkthrough: <https://www.youtube.com/watch?v=ySTaL9G-4oU>
 
-Report: <https://github.com/saulvhwoolf/DataVisFinal/blob/master/ProcessBook.pdf>
+Report: <https://github.com/saulvhwoolf/YT_Viz/blob/master/ProcessBook.pdf>
 
 ## Team Member Contributions
 The following lists indicate which features were completed by each member.
