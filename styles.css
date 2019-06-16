@@ -1,0 +1,164 @@
+body{
+  font-family: 'Muli', sans-serif;
+}
+
+.graphBorder{
+  fill:none !important;
+  stroke:black;
+}
+
+.graphBackground{
+  fill:none !important;
+  stroke:none;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+
+/*        Axis          */
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+/*        Scatter       */
+.scatterPoint{
+  fill:steelblue;
+  stroke:black;
+  stroke-width:1px;
+}
+
+/*        Bar          */
+.bar.x.axis path {
+  /* display: none; */
+}
+
+rect.bar{
+  stroke: black;
+  stroke-width: 0px;
+}
+
+/* rect.bar:hover{
+  stroke-width: 5px;
+  fill: black;
+} */
+
+
+/*      line    */
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+/*   filter menu   */
+/*.menuContainer {
+  float: right;
+  width: 15%;
+  height: 100%;
+}*/
+
+
+/*  graphInterface  */
+.container {
+  padding:0px;
+  margin: 0 auto;
+  margin-top:1em;
+  margin-bottom:1em;
+
+  width:720px;
+  height:420px;
+  padding: 10px;
+  border:2px solid black;
+  border-radius: 5px;
+}
+.simpleContainer {
+  padding:0px;
+  margin: 0 auto;
+  float:left;
+
+  width:525px;
+  height:420px;
+  padding: 10px;
+  border:2px solid black;
+  border-radius: 5px;
+}
+.stuffContainer{
+  height:450px;
+  /* border:thin solid black; */
+  padding:10px;
+  vertical-align: middle;
+
+}
+
+.graphContainer {
+  /* padding:0px; */
+  /* margin:1px; */
+  width:500px;
+  height:400px;
+  float:left;
+  /* border:thin solid red; */
+}
+.interfaceContainer {
+  width:100%;
+  height:200px;
+  /* border:thin solid blue; */
+}
+.filterContainer {
+  /* position: absolute; */
+  width:100%;
+  height:125px;
+  margin-top: 45px;
+  /* border:thin solid black; */
+}
+.menuContainer {
+  width:180px;
+  height:400px;
+  float: right;
+  /* border:thin solid orange; */
+}
+
+
+.textContainer{
+  display: table-cell;
+  vertical-align: middle;
+  /* height:100%; */
+  width:35%;
+  margin-left:10%;
+  margin-right:5%;
+  float: left;
+}
+.textP{
+  height:100%;
+  vertical-align: middle;
+}
+
+/* dropdown*/
+.dropdown{
+  width:100%;
+  /* height:auto; */
+  clear:both;
+  /* float:left; */
+}
+/* .dropdownHolder{ */
+  /* border:thin solid black; */
+  /* height:50px; */
+  overflow: visible;
+  text-align: center;
+  padding-bottom:4px;
+}

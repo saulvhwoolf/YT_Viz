@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Saul Woolf">
+    <meta http-Equiv="Cache-Control" Content="no-cache" />
+    <meta http-Equiv="Pragma" Content="no-cache" />
+    <meta http-Equiv="Expires" Content="0" />
+
+    <title>Video Explorer</title>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap-table/src/bootstrap-table.css">
+    <link rel="stylesheet" href="https//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
+
+    <link rel="stylesheet" type="text/css" href="tableStyles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Oswald|Muli" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div id="page-content" style="text-align:center;">
+      <div style="text-align:center; padding-top:20px; font-family: 'Bitter', serif;">
+        <i><h3>Video Explorer</h4></i>
+      </div>
+    </div>
+    <div id="tablesContainer">
+      <div id="selectedContainer">
+        <table id="selectedTable" data-id-field="id">
+        </table>
+      </div>
+      <div id='graphedContainer'>
+        <div style="float:left; margin-right:5px;">
+          <label>Graph Type:</label>
+          <select id='tableGraphType'>
+            <option value= "bar" selected="selected">Bar Graph</option>
+            <option value= "line">Line Graph</option>
+          </select>
+        </div>
+        <div style="float:right; margin-left:5px;">
+        <label>Y Axis:</label>
+          <select id="tableYAxis">
+            <option value= "likes" selected="selected">Likes</option>
+            <option value= "dislikes">Dislikes</option>
+            <option value= "views" >Views</option>
+            <option value= 'comment_count'>Comments</option>
+          </select>
+        </div>
+        <div id='graphContainer'>
+        </div>
+      </div>
+      <div id="dataContainer">
+        <div id="toolbar">
+          <font size:"30px">Table of Videos</font>
+        </div>
+        <div id="tableContainer">
+          <table id="table"
+                   data-toolbar="#toolbar"
+                   data-search="true"
+                   data-show-refresh="false"
+                   data-show-toggle="false"
+                   data-show-columns="true"
+                   data-show-export="false"
+                   data-detail-view="true"
+                   data-detail-formatter="detailFormatter"
+                   data-show-pagination-switch="false"
+                   data-sort-name="selected"
+                   data-sort-order="desc"
+                   data-pagination="true"
+                   data-id-field="id"
+                   data-page-list="[10, 20, 50, 100, ALL]"
+                   data-show-footer="false">
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+
+    <script src="assets/bootstrap-table/src/bootstrap-table.js"></script>
+    <!-- <script src="assets/bootstrap-table/src/extensions/export/bootstrap-table-export.js"></script> -->
+    <!-- <script src="http://rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script> -->
+    <script src="assets/bootstrap-table/src/extensions/editable/bootstrap-table-editable.js"></script>
+    <script src="http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
+
+
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <script src="dataManagement.js"></script>
+    <script src="graphGenerator.js"></script>
+    <script src="dataExtraction.js"></script>
+    <script src="dataConstruction.js"></script>
+    <script src="tableScript.js"></script>
+
+    <script src="main.js"></script>
+    <script>
+
+    function tableStart(){
+      var startIDs = randomStartingVideos();
+      var startData = [];
+      var tableData = Object.keys(allData).map(function(key){
+        var vid  = allData[key];
+        var fav = false;
+        if(startIDs.indexOf(key) > -1){
+          fav = true;
+          startData.push({
+            id:key,
+            title:vid.title,
+          })
+        }
+        return {
+          id : key,
+          title : vid.title,
+          category : vid.category,
+          channel : vid.channel_title,
+          views : getViews(vid),
+          likes : getLikes(vid),
+          dislikes : getDislikes(vid),
+          views : getViews(vid),
+          comments : getCommentCount(vid),
+          selected : fav,
+        }
+      })
+      initSelectedTable(startData);
+      initTable(tableData);
+      updateTableGraph(startData);
+    }
+
+    function randomStartingVideos(){
+      var keys = Object.keys(allData);
+      var length = keys.length;
+      var ids = [];
+      // var objs = []
+      // console.log(length);
+      while(ids.length < 5){
+        var newVal = keys[Math.floor(Math.random()*length)];
+        if(ids.indexOf(newVal) < 0){
+          ids.push(newVal);
+          // objs.push({
+          //   id : newVal,
+          //   title : allData[newVal].title
+          // })
+          // console.log(objs);
+        }
+      }
+      // updateTableGraph(objs);
+      return ids;
+    }
+
+    start(tableStart);
+    </script>
+
+
+  </body>
+</html>

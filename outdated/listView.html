@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="dataManagement.js"></script>
+  <script src="graphGenerator.js"></script>
+  <script src="dataExtraction.js"></script>
+  <script src="dataConstruction.js"></script>
+  <link rel="stylesheet" type="text/css" href="tableStyles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <!--  Jquery  -->
+  <!-- <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script> -->
+
+
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-table/src/bootstrap-table.css">
+  <link rel="stylesheet" href="//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
+  <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+  <script src="assets/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+<body>
+  <div id="tablesContainer">
+    <div id="selectedContainer">
+      <table id="selectedTable" data-id-field="id">
+      </table>
+    </div>
+    <div id='graphContainer'>
+      <label>Graph Type:</label>
+      <select id='tableGraphType'>
+        <option value= "bar" selected="selected">Bar Graph</option>
+        <option value= 'line'>Line Graph</option>
+      </select>
+      <label>Y Axis</label>
+      <select id="tableYAxis">
+        <option value= "likes" selected="selected">Likes</option>
+        <option value= "dislikes">Dislikes</option>
+        <option value= "views" >Views</option>
+        <option value= 'comment_count'>Comments</option>
+      </select>
+    </div>
+    <div id="dataContainer">
+      <div id="toolbar">
+        <font size:"30px">Table of Videos</font>
+      </div>
+      <div id="tableContainer">
+        <table id="table"
+                 data-toolbar="#toolbar"
+                 data-search="true"
+                 data-show-refresh="false"
+                 data-show-toggle="false"
+                 data-show-columns="true"
+                 data-show-export="false"
+                 data-detail-view="true"
+                 data-detail-formatter="detailFormatter"
+                 data-show-pagination-switch="false"
+                 data-pagination="true"
+                 data-id-field="id"
+                 data-page-list="[10, 20, 50, 100, ALL]"
+                 data-show-footer="false">
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="assets/bootstrap-table/src/bootstrap-table.js"></script>
+    <script src="assets/bootstrap-table/src/extensions/export/bootstrap-table-export.js"></script>
+    <script src="http://rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
+    <script src="assets/bootstrap-table/src/extensions/editable/bootstrap-table-editable.js"></script>
+    <script src="http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
+    <script src="tableScript.js"></script>
+
+    <script>
+      fetchData(main);
+      var allData = null;
+
+      //sXP6vliZIHI was on trending for 14 days
+
+      function main(data){
+        allData = data;
+        console.log(allData["sXP6vliZIHI"]);
+
+        var tableData = Object.keys(allData).map(function(key){
+          var vid  = allData[key];
+          return {
+            id : key,
+            title : vid.title,
+            category : vid.category,
+            channel : vid.channel_title,
+            views : getViews(vid),
+            likes : getLikes(vid),
+            dislikes : getDislikes(vid),
+            views : getViews(vid),
+            comments : getCommentCount(vid),
+            selected : false,
+          }
+        })
+        initTable(tableData);
+        initSelectedTable(tableData);
+      }
+
+    </script>
+</body>

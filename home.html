@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Saul Woolf">
+
+    <title>Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="home.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Oswald" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div >
+
+      <div class="page-content">
+        <div style="text-align:center; padding:20px; font-family: 'Bitter', serif;">
+          <i>
+            <h1>Youtube Trending</h1>
+            <h6>AN EXPLORATORY TOOL FOR WHAT WE WATCH</h6>
+          </i>
+        </div>
+
+        <div class="stuffContainer" >
+          <div class="textContainer">
+            <p class="lead textP">Many of us spend hours watching Youtube, but what do we watch? Along with our own subscriptions and recommended videos, YouTube presents us with Trending Videos. These videos are selected by YouTube's algorithm as being the most important and popular of a time. Why should you care which videos are trending? If your video is recognized by the Youtube algorithm as trending, the views it gets will skyrocket. This graph shows the change in views of a videos while it is trending; note the drastic increase in views when the video first begins trending.</p>
+          </div>
+          <div style="width: 50%; float: right">
+            <div class = "simpleContainer" id = "ex1"></div>
+          </div>
+        </div>
+
+        <div class="stuffContainer">
+          <div style="width:35%; margin-left:10%; margin-right:5%; float: left; ">
+            <p class="lead">Our Tools allow you to explore Trending Videos on YouTube. Our Video Exploration Tool lets you compare any of your favorite videos while they were trending during our time period. Here you can see the comparitve comments on some of the most Popular YouTube Videos </p>
+          </div>
+          <div style="width: 50%; float: right">
+            <div class = "simpleContainer" id = "ex2"></div>
+          </div>
+        </div>
+
+        <div class="stuffContainer">
+          <div style="width:35%; margin-left:10%; margin-right:5%; float: left; ">
+            <p class="lead">If you are interested in looking at data sets based on particular categories or tags, you can use our graph creator. The graph creator lets you look at scatterplots, bar graphs, or line graohs of data sets filtered by tag or category. For example, here is a scatter plot of the likes and dislikes for political videos. You can hover over the points to see the titles of each video and click them to open the video in YouTube</p>
+          </div>
+          <div style="width: 50%; float: right">
+            <div class = "simpleContainer" id = "ex3"></div>
+          </div>
+        </div>
+
+        <div class="stuffContainer">
+          <div style="width:35%; margin-left:10%; margin-right:5%; float: left; ">
+            <p class="lead">YouTube content creators have the options to disable rating or commnets for their videos. Here are what the ratings for these videos looked like before either were disabled</p>
+          </div>
+          <div style="width: 50%; float: right">
+            <div class = "simpleContainer" id = "ex4"></div>
+          </div>
+        </div>
+
+        <div class="stuffContainer">
+          <div style="width:35%; margin-left:10%; margin-right:5%; float: left; ">
+            <p class="lead">Now lets look at some of the lowest rated videos to ever trend</p>
+          </div>
+          <div style="width: 50%; float: right">
+            <div class = "simpleContainer" id = "ex5"></div>
+          </div>
+
+        </div>
+        <div class="stuffContainer">
+
+          <div style="width: 50%; float: right">
+            <div class = "simpleContainer" id = "ex6"></div>
+          </div>
+        </div>
+
+        <div class="stuffContainer">
+          <div style="width:35%; margin-left:10%; margin-right:5%; float: left; ">
+            <p class="lead">Finally, here are the most popular categories and tags for all trending videos</p>
+          </div>
+          <div style="width: 50%; float: right">
+            <div class = "simpleContainer" id = "ex7"></div>
+          </div>
+        </div>
+
+        <!-- <div style="width: 25%; margin-left:15%; margin-right:10%; float: left; text-align">
+          <p class="lead">Many of use spend hours watching Youtube, but what do we watch? Along with our own subscriptions and recommended videos, YouTube presents us with Trending Videos. These videos are selected by YouTube's algorithm as being the most important and popular of a time. Why should you care which videos are trending? If your video is recognized by the Youtube algorithm as trending, the views it gets will skyrocket. This graph shows the change in views of a videos while it is trending; note the drastic increase in views when the video first begins trending.</p>
+          <p class="lead">Our Tools allow you to explore Trending Videos on YouTube. Our Video Exploration Tool lets you compare any of your favorite videos while they were trending during our time period. Here you can see the comparitve comments on some of the most Popular YouTube Videos </p>
+          <p class="lead">If you are interested in looking at data sets based on particular categories or tags, you can use our graph creator. The graph creator lets you look at scatterplots, bar graphs, or line graohs of data sets filtered by tag or category. For example, here is a scatter plot of the likes and dislikes for political videos. You can hover over the points to see the titles of each video and click them to open the video in YouTube</p>
+          <p class="lead">YouTube content creators have the options to disable rating or commnets for their videos. Here are what the ratings for these videos looked like before either were disabled</p>
+          <p class="lead">Now lets look at some of the lowest rated videos to ever trend</p>
+          <p class="lead">Finally, here are the most popular categories and tags for all trending videos</p>
+        </div>
+        <div style="width: 50%; float: right">
+          <div class = "simpleContainer" id = "ex1"></div>
+          <div class = "simpleContainer" id = "ex2"></div>
+          <div class = "simpleContainer" id = "ex3"></div>
+          <div class = "simpleContainer" id = "ex4"></div>
+          <div class = "simpleContainer" id = "ex5"></div>
+        </div>
+          </div> -->
+
+    </div><!-- /.container -->
+    <script src ="dataManagement.js"></script>
+    <script src="graphGenerator.js"></script>
+    <script src="dataExtraction.js"></script>
+    <script src="dataConstruction.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <script src = 'main.js'></script>
+    <script>
+      start(homeGraphs);
+
+      function homeGraphs(){
+        // console
+        var ob1  = objectifyLine(filterNumberData({views: ['10000000', '1000000000']}), 'views');
+        var ob2 = objectifyScatter(filterNumberData({views: ['10000000', '1000000000']}), 'likes', 'comments');
+        lineGraph(500, 400, ob1, d3.select('#ex1'), genInfo('Views over Time', 'Dates', 'Views'));
+        scatterPlot(500,400, ob2,  d3.select('#ex2'), genInfo('Comments Vs. Likes', 'Likes', 'Comments'));
+
+        var exData1 = filterData({tags:["politics"]});
+        var exGraph1 = objectifyScatter(exData1, "likes", "dislikes");
+        scatterPlot(500, 400, exGraph1, d3.select('#ex3'), genInfo("Likes by Dislikes Related to Politics", "Likes", "Dislikes"))
+
+        var exData2 = filterData({ratings_disabled:["True"]});
+        var exGraph2 = objectifyScatter(exData2, "likes", "dislikes");
+        scatterPlot(500, 400, exGraph2, d3.select('#ex4'), genInfo("Likes before Likes Were Disabled", "Likes", "Dislikes"))
+
+
+        var exData3 = filterData({comments_disabled:["True"]});
+        var exGraph3 = objectifyScatter(exData3, "likes", "dislikes");
+        scatterPlot(500, 400, exGraph3, d3.select('#ex5'), genInfo("Likes before Comments Were Disabled", "Likes", "Dislikes"))
+
+
+        var ob3 = objectifyLine(filterNumberData({dislikes:['100000', '1000000000']}), 'dislikes');
+        lineGraph(500, 400, ob3, d3.select('#ex6'), genInfo('Dislikes over Time', 'Dates', 'Dislikes'));
+
+        var ob4 = objectifyBar(allData, 'category' ,'sum', 'views');
+        barGraph(500, 400, ob4, d3.select('#ex7'), genInfo('Most Viewed Categories'), 'Categories', 'Views');
+
+
+
+      }
+
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Saul Woolf">
+    <title>Youtube Trending Exploration</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="home.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Youtube Trending</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active" id = "home">
+            <a class="nav-link" href="#" onclick="changePage('home')">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" id = "videoExplorer">
+            <a class="nav-link" href="#" onclick="changePage('videoExplorer')">Explore Videos</a>
+          </li>
+          <li class="nav-item" id = "graphCreator">
+            <a class="nav-link" href="#" onclick="changePage('graphCreator')">Create Graphs</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="frameHolder">
+      <iframe src="home.html" id = "myFrame"></iframe>
+    </div>
+
+    <script>
+      var current = "home";
+      function changePage(type){
+        if(type != current){
+          console.log("switch to " + type);
+          $("#"+current).removeClass("active");
+
+          current = type;
+
+          $("#"+current).addClass("active");
+          $("#myFrame").attr('src', current+".html");
+        }
+      }
+    </script>
+
+    <div id ="pageFooter">
+      <div><b>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> are licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></b></div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
